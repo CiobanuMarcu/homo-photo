@@ -47,28 +47,33 @@ http://www.tooplate.com/view/2085-neuron
                     <span class="icon icon-bar"></span>
                </button>
 				<div class="logo">
-					<a href="index.html" class="navbar-brand" style="border-style:solid; padding:20px; height: 100%; border-radius: 25px;">
+					<a href="index.php" class="navbar-brand" style="border-style:solid; padding:20px; height: 100%; border-radius: 25px;">
 					<span>Homo</br>photographicus</span>
 					</a>
 				</div>
           </div>
           <div class="collapse navbar-collapse">
                <ul class="nav navbar-nav navbar-right">
-                    <form action="#" method="post">
+                    <form method="post" action="logic/login-logic.php">
                          <div class="col-md-4 col-sm-4">
-                              <input name="name" type="text" class="form-control" id="name" placeholder="Nume">
+                              <input name="username" type="text" class="form-control" id="name" placeholder="Nume">
                          </div>
 						 <div class="col-md-4 col-sm-4">
                               <input name="password" type="password" class="form-control" id="password" placeholder="Parolă">
                          </div>
                          <div class="col-md-3 col-sm-6">
-						 <a href="elev.html">
-							<input name="submit" type="elev.html" class="form-control" id="submit" value="Autentifică-te">
-						</a>	
+						      <input name="submit" type="submit" class="form-control" id="submit" value="Autentifică-te">
                          </div>
                     </form>
+                   <?php
+                   if(isset($_SESSION['iserror']) && $_SESSION['iserror']=="true")
+                   {
+                       echo '<h1>The username or password are incorrect!</h1>';
+                       session_destroy();
+                   }
+                   ?>
                </ul>
-			   
+
           </div>
 		  <div class="col align-self-end"><p class="text-right"><a href="inscriere.html">Nu ai cont? Înscrie-te!</a></p></div>
 
@@ -102,13 +107,13 @@ http://www.tooplate.com/view/2085-neuron
 			</br>
 			<div class="row"><p style="font-size:30px;">Cine?</p></div>
 			<div class="row">
-				<div class="col"><p style="font-size:30px;">Unde?</p></div> 
+				<div class="col"><p style="font-size:30px;">Unde?</p></div>
 				<div class="col-6">
 				<img src="images/800px-Adunare_Piaţa_Palatului_August_1968.jpg" class="indexphoto" alt="Gallery Image">
 				</div>
 				<p class="dece"><b>DE CE?</b></p>
 				<div class="col"><p  style="font-size:30px;" >Când?</p></div>
-			</div>	
+			</div>
 			<p style="font-size:30px;">Ce?</p>
           </div>
      </div>
@@ -119,7 +124,7 @@ http://www.tooplate.com/view/2085-neuron
 <footer>
      <div class="container">
           <div class="row">
-               
+
           </div>
      </div>
 </footer>
