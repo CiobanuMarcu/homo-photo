@@ -100,12 +100,10 @@
                 <span></span>
                 <div class="col-md col-sm">
                     <div class="gallery-thumb">
-                        <a href="nivel1.php">
-                            <img src="images/800px-Adunare_Piaţa_Palatului_August_1968.jpg" class="img-responsive" alt="Gallery Image">
-                        </a>
+
                     </div>
                 </div>
-
+                <!--
                 <div class="col-md col-sm">
                     <div class="gallery-thumb">
                         <a href="images/gallery-image2.jpg" class="image-popup">
@@ -145,7 +143,7 @@
                         </a>
                     </div>
                 </div>
-
+                -->
                 <div class="col-md-12 col-sm-12">
                 </div>
             </div>

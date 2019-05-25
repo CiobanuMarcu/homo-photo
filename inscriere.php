@@ -103,10 +103,8 @@
                     <div class="col-md-4 col-sm-4">
                         <input name="cpassword" type="password" class="form-control" id="confirm_password" placeholder="Confirmă parola">
                     </div>
-                    <div>
-                        <input name="elev" type="radio" value="elev">Elev</input>
-                        <input name="profesor" type="radio" value="profesor">Profesor</input>
-                    </div>
+                    <input type="radio" name="admin" value="Elev"> Elev
+                    <input type="radio" name="admin" value="Profesor"> Profesor
                     <div class="col-md-3 col-sm-6">
                         <input name="submit" type="submit" class="form-control" id="submit" value="Înscrie-te">
                     </div>
