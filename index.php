@@ -75,7 +75,7 @@ http://www.tooplate.com/view/2085-neuron
                </ul>
 
           </div>
-		  <div class="col align-self-end"><p class="text-right"><a href="inscriere.html">Nu ai cont? Înscrie-te!</a></p></div>
+		  <div class="col align-self-end"><p class="text-right"><a href="inscriere.php">Nu ai cont? Înscrie-te!</a></p></div>
 
   </div>
 </div>
