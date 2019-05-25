@@ -11,6 +11,7 @@ if(isset($_REQUEST['submit']))
     $nume=$_REQUEST["name"];
     $email=$_REQUEST["email"];
     $parola=$_REQUEST["password"];
+    $judet=$_REQUEST["judet"];
     if($_REQUEST["admin"] == "Profesor")
     {
         $admin = 1;
@@ -19,8 +20,8 @@ if(isset($_REQUEST['submit']))
     {
         $admin = 0;
     }
-    $sql="insert into utilizatori(Nume, Email, Parola, Admin) values
-     ('$nume', '$email', '$parola', '$admin')";
+    $sql="insert into utilizatori(Nume, Email, Parola, Admin, Judet) values
+     ('$nume', '$email', '$parola', '$admin', '$judet')";
     $connection=getConnection();
     $result=mysqli_query($connection, $sql);
     if($result === true)

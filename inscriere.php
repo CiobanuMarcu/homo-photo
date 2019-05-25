@@ -97,6 +97,55 @@
                     <div class="col-md-4 col-sm-4">
                         <input name="email" type="email" class="form-control" id="email" placeholder="Email">
                     </div>
+                    <!--<div class="col-md-4 col-sm-4">
+                        <input name="judet" type="text" class="form-control" id="judet" placeholder="Judet">
+                    </div> -->
+                    <style>
+                        .dropbtn {
+                            background-color: #4CAF50;
+                            color: white;
+                            padding: 16px;
+                            font-size: 16px;
+                            border: none;
+                        }
+
+                        .dropdown {
+                            position: relative;
+                            display: inline-block;
+                        }
+
+                        .dropdown-content {
+                            display: none;
+                            position: absolute;
+                            background-color: #f1f1f1;
+                            min-width: 160px;
+                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                            z-index: 1;
+                        }
+
+                        .dropdown-content a {
+                            color: black;
+                            padding: 12px 16px;
+                            text-decoration: none;
+                            display: block;
+                        }
+
+                        .dropdown-content a:hover {background-color: #ddd;}
+
+                        .dropdown:hover .dropdown-content {display: block;}
+
+                        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+                    </style>
+                    <div class="dropdown">
+                        <button class="dropbtn">Județ</button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+
+
                     <div class="col-md-4 col-sm-4">
                         <input name="password" type="password" class="form-control" id="password" placeholder="Parola">
                     </div>
