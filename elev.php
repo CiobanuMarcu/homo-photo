@@ -58,9 +58,6 @@
                 </a>
             </div>
         </div>
-        <? $php
-             printf("<p>Bun venit, %s</p>", $_SESSION['user']);
-        ?>
         <a href="logic/logout-logic.php" class="smoothScroll btn btn-default">Deconectează-te</a>
         <!-- <div class="collapse navbar-collapse">
 
@@ -103,6 +100,15 @@
 
                     </div>
                 </div>
+                <style>
+                    img
+                    {
+                        height:200px;
+
+                    }
+                </style>
+                <img src=logic/download-logic.php?id=1/>
+                <img src=logic/download-logic.php?id=2/>
                 <!--
                 <div class="col-md col-sm">
                     <div class="gallery-thumb">

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Marcu
- * Date: 24 Mai 2019
- * Time: 17:21
- */
 function getConnection()
 {
     $conn = mysqli_connect('localhost', 'root', '', 'homo-photo');

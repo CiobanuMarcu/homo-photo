@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="description" content="">
@@ -92,18 +91,16 @@
                  -->
                 <form action="logic/register-logic.php" method="post">
                     <div class="col-md-4 col-sm-4">
-                        <input name="name" type="text" class="form-control" id="name" placeholder="Nume">
+                        <input name="name" type="text" class="form-control" id="name" placeholder="Nume" required>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Email" required>
                     </div>
-                    <!--<div class="col-md-4 col-sm-4">
-                        <input name="judet" type="text" class="form-control" id="judet" placeholder="Judet">
-                    </div> -->
+
                     <style>
                         .dropbtn {
-                            background-color: #4CAF50;
-                            color: white;
+                            background-color: white;
+                            color: #999;
                             padding: 16px;
                             font-size: 16px;
                             border: none;
@@ -118,19 +115,21 @@
                             display: none;
                             position: absolute;
                             background-color: #f1f1f1;
+                            height: 300px;
                             min-width: 160px;
                             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                             z-index: 1;
+                            overflow: scroll;
                         }
 
-                        .dropdown-content a {
+                        .dropdown-content input {
                             color: black;
-                            padding: 12px 16px;
+                            padding: 6px 8px;
                             text-decoration: none;
                             display: block;
                         }
 
-                        .dropdown-content a:hover {background-color: #ddd;}
+                        .dropdown-content input:hover {background-color: #ddd;}
 
                         .dropdown:hover .dropdown-content {display: block;}
 
@@ -138,22 +137,60 @@
                     </style>
                     <div class="dropdown">
                         <button class="dropbtn">Județ</button>
-                        <div class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                        <div class="dropdown-content" required>
+                            <input name="judet" type="radio" value="Alba">Alba</br>
+                            <input name="judet" type="radio" value="Arad">Arad</br>
+                            <input name="judet" type="radio" value="Arges">Argeș</br>
+                            <input name="judet" type="radio" value="Bacau">Bacău</br>
+                            <input name="judet" type="radio" value="Bihor">Bihor</br>
+                            <input name="judet" type="radio" value="Bistrita-Nasaud">Bistrița-Năsăud</br>
+                            <input name="judet" type="radio" value="Botosani">Botoșani</br>
+                            <input name="judet" type="radio" value="Brasov">Brașov</br>
+                            <input name="judet" type="radio" value="Braila">Brăila</br>
+                            <input name="judet" type="radio" value="Bucuresti">București</br>
+                            <input name="judet" type="radio" value="Buzau">Buzău</br>
+                            <input name="judet" type="radio" value="Caras-Severin">Caraș-Severin</br>
+                            <input name="judet" type="radio" value="Calarasi">Călărași</br>
+                            <input name="judet" type="radio" value="Cluj">Cluj</br>
+                            <input name="judet" type="radio" value="Constanta">Constanța</br>
+                            <input name="judet" type="radio" value="Covasna">Covasna</br>
+                            <input name="judet" type="radio" value="Dambovita">Dâmbovița</br>
+                            <input name="judet" type="radio" value="Dolj">Dolj</br>
+                            <input name="judet" type="radio" value="Galati">Galați</br>
+                            <input name="judet" type="radio" value="Giurgiu">Giurgiu</br>
+                            <input name="judet" type="radio" value="Gorj">Gorj</br>
+                            <input name="judet" type="radio" value="Harghita">Harghita</br>
+                            <input name="judet" type="radio" value="Hunedoara">Hunedoara</br>
+                            <input name="judet" type="radio" value="Ialomita">Ialomița</br>
+                            <input name="judet" type="radio" value="Iasi">Iași</br>
+                            <input name="judet" type="radio" value="Ilfov">Ilfov</br>
+                            <input name="judet" type="radio" value="Maramures">Maramureș</br>
+                            <input name="judet" type="radio" value="Mehedinti">Mehedinți</br>
+                            <input name="judet" type="radio" value="Mures">Mureș</br>
+                            <input name="judet" type="radio" value="Neamt">Neamț</br>
+                            <input name="judet" type="radio" value="Olt">Olt</br>
+                            <input name="judet" type="radio" value="Prahova">Prahova</br>
+                            <input name="judet" type="radio" value="Satu Mare">Satu Mare</br>
+                            <input name="judet" type="radio" value="Salaj">Sălaj</br>
+                            <input name="judet" type="radio" value="Sibiu">Sibiu</br>
+                            <input name="judet" type="radio" value="Suceava">Suceava</br>
+                            <input name="judet" type="radio" value="Teleorman">Teleorman</br>
+                            <input name="judet" type="radio" value="Timis">Timiș</br>
+                            <input name="judet" type="radio" value="Tulcea">Tulcea</br>
+                            <input name="judet" type="radio" value="Vaslui">Vaslui</br>
+                            <input name="judet" type="radio" value="Valcea">Vâlcea</br>
+                            <input name="judet" type="radio" value="Vrancea">Vrancea</br>
                         </div>
                     </div>
 
-
                     <div class="col-md-4 col-sm-4">
-                        <input name="password" type="password" class="form-control" id="password" placeholder="Parola">
+                        <input name="password" type="password" class="form-control" id="password" placeholder="Parola" required/>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <input name="cpassword" type="password" class="form-control" id="confirm_password" placeholder="Confirmă parola">
+                        <input name="cpassword" type="password" class="form-control"  id="confirm_password" placeholder="Confirmă parola" required/>
                     </div>
-                    <input type="radio" name="admin" value="Elev"> Elev
-                    <input type="radio" name="admin" value="Profesor"> Profesor
+                    <input type="radio" name="admin" value="Elev" required> Elev
+                    <input type="radio" name="admin" value="Profesor" required> Profesor
                     <div class="col-md-3 col-sm-6">
                         <input name="submit" type="submit" class="form-control" id="submit" value="Înscrie-te">
                     </div>
