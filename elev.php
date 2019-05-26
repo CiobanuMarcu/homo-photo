@@ -107,8 +107,22 @@
 
                     }
                 </style>
-                <img src=logic/download-logic.php?id=1/>
-                <img src=logic/download-logic.php?id=2/>
+               <!-- <script>
+                    var i;
+                    for(i=1;i <= 3; i++)
+                    {
+                        <img src=logic/download-logic.php?id=i/>
+                    }
+                </script>-->
+                <?php
+                    include('service/DatabaseManager.php');
+                    $connection = getConnection();
+                    $rowSQL = mysqli_query($connection, "SELECT MAX( id ) AS max FROM poze ;" );
+                    $row = mysqli_fetch_array( $rowSQL );
+                    for($i = $row['max']; $i > 0; $i--)
+                        //<a href=nivel1.php?id=id-ul pozei selectate>
+                        echo "<img src=logic/download-logic.php?id=$i/></br>";
+                ?>
                 <!--
                 <div class="col-md col-sm">
                     <div class="gallery-thumb">
