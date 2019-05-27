@@ -102,7 +102,8 @@ if (!isset ($_SESSION['user'])) {
                     </div>
                     <div class="blog-comment-form">
 
-                        <form action="logic/rasp/r1.php" method="post">
+                        <form action="logic/rasp/r1.php" method="get">
+                            <input type="text" style="display: none;" name="id" id="id" value=<?php $_GET['id']?> >
                             <input type="text" class="form-control" placeholder="Personaje" name="personaje" id="personaje" required>
                             <input type="text" class="form-control" placeholder="Obiecte" name="obiecte" id="obiecte" required>
                             <input type="text" class="form-control" placeholder="Acțiuni" name="actiuni" id="actiuni" required>
