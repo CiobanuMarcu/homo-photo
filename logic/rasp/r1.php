@@ -3,7 +3,7 @@ session_start();
 ob_start();
 include('../../service/DatabaseManager.php');
 //if(isset($_POST['submit'])) {
-if(isset($_REQUEST['submit'])) {
+//if(isset($_REQUEST['submit'])) {
     $r11 = $_REQUEST['personaje'];
     $r12 = $_REQUEST["obiecte"];
     $r13 = $_REQUEST["actiuni"];
@@ -24,4 +24,3 @@ if(isset($_REQUEST['submit'])) {
 //        header("Location:../inscriere.php");
 //    }
     closeConnection($connection);
-}
