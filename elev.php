@@ -119,9 +119,7 @@
                     $connection = getConnection();
                     $rowSQL = mysqli_query($connection, "SELECT MAX( id ) AS max FROM poze ;" );
                     $row = mysqli_fetch_array( $rowSQL );
-                    for($i = $row['max']; $i > 0; $i--)
-                        //<a href=nivel1.php?id=id-ul pozei selectate>
-                        echo "<img src=logic/download-logic.php?id=$i/></br>";
+                    for($i = $row['max']; $i > 0; $i--) echo "<a href=nivel1.php?id=$i><img src=logic/download-logic.php?id=$i/></a></br>";
                 ?>
                 <!--
                 <div class="col-md col-sm">

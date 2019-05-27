@@ -95,16 +95,18 @@ if (!isset ($_SESSION['user'])) {
             <div class="col-md-offset-1 col-md-10 col-sm-12">
                 <div class="blog-single-post-thumb">
                     <div class="blog-post-image">
-                        <img src="images/800px-Adunare_Piaţa_Palatului_August_1968.jpg" class="indexphoto" alt="Blog Image 3">
+                        <?php
+                            $x=$_GET['id'];
+                            echo "<img src=logic/download-logic.php?id=$x class='indexphoto' alt='Blog Image 3'>";
+                        ?>
                     </div>
                     <div class="blog-comment-form">
 
-                        <form action="nivel2.php" method="post">
-                            <input type="text" class="form-control" placeholder="Personaje" name="personaje" required>
-                            <input type="text" class="form-control" placeholder="Obiecte" name="obiecte" required>
-                            <!--<textarea name="message" rows="5" class="form-control" id="message" placeholder="Message" message="message" required="required"></textarea>-->
-                            <input type="text" class="form-control" placeholder="Acțiuni" name="acțiuni" required>
-                            <input type="text" class="form-control" placeholder="Locul acțiunii" name="locuri" required>
+                        <form action="logic/rasp/r1.php" method="post">
+                            <input type="text" class="form-control" placeholder="Personaje" name="personaje" id="personaje" required>
+                            <input type="text" class="form-control" placeholder="Obiecte" name="obiecte" id="obiecte" required>
+                            <input type="text" class="form-control" placeholder="Acțiuni" name="actiuni" id="actiuni" required>
+                            <input type="text" class="form-control" placeholder="Locul acțiunii" name="locuri" id="locuri" required>
                             <div class="col-md-3 col-sm-4">
                                 <input name="submit" type="submit" class="form-control" id="submit" value="Nivelul următor">
                             </div>

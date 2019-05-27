@@ -89,7 +89,7 @@
                 <!--     <h2>Say hello..</h2>
                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                  -->
-                <form action="logic/register-logic.php" method="post">
+                <form action="logic/register-logic.php" method="POST">
                     <div class="col-md-4 col-sm-4">
                         <input name="name" type="text" class="form-control" id="name" placeholder="Nume" required>
                     </div>

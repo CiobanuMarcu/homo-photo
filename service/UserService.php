@@ -30,6 +30,9 @@ class UserService
         $rows = mysqli_num_rows($result);
         if($rows == 1)
         {
+            $row = mysqli_fetch_assoc($result);
+            $user_id = $row['id'];
+            $_SESSION['id'] = $user_id;
             $_SESSION["user"] = $_POST['username'];
             closeConnection($connection);
             header('Location: ../elev.php');
