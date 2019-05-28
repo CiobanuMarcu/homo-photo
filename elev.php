@@ -107,13 +107,6 @@
 
                     }
                 </style>
-               <!-- <script>
-                    var i;
-                    for(i=1;i <= 3; i++)
-                    {
-                        <img src=logic/download-logic.php?id=i/>
-                    }
-                </script>-->
                 <?php
                     include('service/DatabaseManager.php');
                     $connection = getConnection();
@@ -121,47 +114,6 @@
                     $row = mysqli_fetch_array( $rowSQL );
                     for($i = $row['max']; $i > 0; $i--) echo "<a href=nivel1.php?id=$i><img src=logic/download-logic.php?id=$i/></a></br>";
                 ?>
-                <!--
-                <div class="col-md col-sm">
-                    <div class="gallery-thumb">
-                        <a href="images/gallery-image2.jpg" class="image-popup">
-                            <img src="images/gallery-image2.jpg" class="img-responsive" alt="Gallery Image">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-md col-sm">
-                    <div class="gallery-thumb">
-                        <a href="images/gallery-image3.jpg" class="image-popup">
-                            <img src="images/gallery-image3.jpg" class="img-responsive" alt="Gallery Image">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-md col-sm">
-                    <div class="gallery-thumb">
-                        <a href="images/gallery-image4.jpg" class="image-popup">
-                            <img src="images/gallery-image4.jpg" class="img-responsive" alt="Gallery Image">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-md col-sm">
-                    <div class="gallery-thumb">
-                        <a href="images/gallery-image5.jpg" class="image-popup">
-                            <img src="images/gallery-image5.jpg" class="img-responsive" alt="Gallery Image">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-md col-sm">
-                    <div class="gallery-thumb">
-                        <a href="images/gallery-image6.jpg" class="image-popup">
-                            <img src="images/gallery-image6.jpg" class="img-responsive" alt="Gallery Image">
-                        </a>
-                    </div>
-                </div>
-                -->
                 <div class="col-md-12 col-sm-12">
                 </div>
             </div>

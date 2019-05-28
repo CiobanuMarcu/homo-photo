@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,11 +28,7 @@
 <body>
 
 <!-- PRE LOADER -->
-<?php
-if (!isset ($_SESSION['user'])) {
-    header('Location: index.php');
-}
-?>
+
 <div class="preloader">
     <div class="sk-spinner sk-spinner-wordpress">
         <span class="sk-inner-circle"></span>
@@ -96,10 +91,19 @@ if (!isset ($_SESSION['user'])) {
                         analizată (nu uita să ceri acordul dacă alegi o persoană!). Încarcă fotografia.
                         <br>Analizează fotografiile colegilor, pune întrebări și dă răspunsuri.</h4>
                 </div>
-                <form action="elev.html">
-                    <input type="file" name="pic" accept="image/*">
-                    <input type="submit">
-                </form>
+                <?php
+                    session_start();
+                    if (!isset ($_SESSION['user'])) {
+                        header('Location: index.php');
+                    }
+                $x=$_GET['id'];
+                echo"<form action=\"logic/upload-elev-logic.php\" method=\"post\" enctype=\"multipart/form-data\">
+                        <input type=\"text\" style=\"display: none;\" name=\"id\" id=\"id\" value=$x >
+                        <input type=\"file\" name=\"image\"/>
+                        <input type=\"submit\" name=\"submit\" value=\"UPLOAD\"/>
+                    </form>";
+                ?>
+
             </div>
         </div>
 </section>

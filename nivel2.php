@@ -92,26 +92,53 @@ if (!isset ($_SESSION['user'])) {
 
             <div class="col-md-offset-1 col-md-10 col-sm-12">
                 <div class="blog-single-post-thumb">
-                    <div class="blog-post-image">
-                        <img src="images/800px-Adunare_Piaţa_Palatului_August_1968.jpg" class="indexphoto" alt="Blog Image 3">
-                    </div>
                     <div class="blog-comment-form">
-                        <form action="nivel3.php" method="post">
-                            <div align="left">
-                                <p style="color:black; float: left;">Poziția autorului fotografiei în raport cu evenimentul/personajul principal:</p>
-                                <input name="sustinator" type="radio" value="sustinator">Susținător</input>
-                                <input name="opozant" type="radio" value="opozant">Opozant</input>
-                                <input name="neutru" type="radio" value="neutru">Neutru</input>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Perioada istorică din care datează fotografia" name="cand" required>
-                            <input type="text" class="form-control" placeholder="Unde a fost realizată și/sau publicată fotografia" name="unde" required>
-                            <div  align="left" style="float: left; margin-right:15px;">
-                                <i>Întrebarea profesorului: </i>
-                            </div>
-                            <p style="font-size: 100%;" align="left">-------</p>
-                            <input type="text" class="form-control" placeholder="Răspuns" name="raspuns" required>
+<!--                        <form action="logic/rasp/r2.php" method="get">-->
+<!--<!--                            -->
+<!--//                                $x=$_GET['id'];-->
+<!--//                                echo"<div class=\"blog-post-image\"><img src=logic/download-logic.php?id=$x class='indexphoto'></div>";-->
+<!--//                                echo "<input type=\"text\" style=\"display: none;\" name=\"id\" id=\"id\" value=$x >"-->
+<!--//                            -->
+<!--                            <div align="left">-->
+<!--                                Poziția autorului fotografiei în raport cu evenimentul/personajul principal:-->
+<!--                                <input name="pozitie" type="radio" value="sustinator">Susținător-->
+<!--                                <input name="pozitie" type="radio" value="opozant">Opozant-->
+<!--                                <input name="pozitie" type="radio" value="neutru">Neutru-->
+<!--                            </div>-->
+<!--                            <input type="text" class="form-control" placeholder="Perioada istorică din care datează fotografia" name="cand" required>-->
+<!--                            <input type="text" class="form-control" placeholder="Unde a fost realizată și/sau publicată fotografia" name="unde" required>-->
+<!--                            <div  align="left" style="float: left; margin-right:15px;"><i>Întrebarea profesorului: </i></div>-->
+<!--                            <p style="font-size: 100%;" align="left">-------</p>-->
+<!--                            <input type="text" class="form-control" placeholder="Răspuns" name="raspuns" required>-->
+<!--                            <div class="col-md-3 col-sm-4"><input name="submit" type="submit" class="form-control" id="submit" value="Trimite răspunsurile"></div>-->
+<!--                        </form>-->
+                        <form action="logic/rasp/r2.php" method="get">
+                            <?php
+                            $x=$_GET['id'];
+                            echo "<div class=\"blog-post-image\"><img src=logic/download-logic.php?id=$x class='indexphoto' alt='Blog Image 3'></div>";
+                            echo "<input type=\"text\" style=\"display: none;\" name=\"id\" id=\"id\" value=$x >";
+                            echo 'Poziția autorului fotografiei în raport cu evenimentul/personajul principal:';
+                            echo "<input type='radio' name='pozitie' id='pozitie' value='Sustinator'>Sustinator";
+                            echo  "<input type='radio' name='pozitie' id='pozitie' value='Opozant'>Opozant";
+                            echo  "<input type='radio' name='pozitie' id='pozitie' value='Neutru'>Neutru";
+                            echo "<input type='text' class='form-control' placeholder='Perioada istorică din care datează fotografia' name='cand' id='cand' required>";
+                            echo "<input type='text' class='form-control' placeholder='Unde a fost realizată și/sau publicată fotografia' name='unde' id='unde' required>";
+                            $username = "root";
+                            $password = "";
+                            $database = "homo-photo";
+                            $mysqli = new mysqli("localhost", $username, $password, $database);
+                            $query = "SELECT intrebare FROM poze WHERE id=$x";
+                            if ($result = $mysqli->query($query)) {
+
+                                while ($row = $result->fetch_assoc()) {
+                                    $intrebare = $row["intrebare"];
+                                    echo "<div align=\"left\" style=\"float: left; margin-right:15px;\"><i>Întrebarea profesorului: </i>".$intrebare."</div>";
+                                }
+                            }
+                            ?>
+                            <input type="text" class="form-control" placeholder="Răspuns" name="raspuns" id="raspuns" required>
                             <div class="col-md-3 col-sm-4">
-                                <input name="submit" type="submit" class="form-control" id="submit" value="Trimite răspunsurile">
+                                <input name="submit" type="submit" class="form-control" id="submit" value="Nivelul următor">
                             </div>
                         </form>
                     </div>

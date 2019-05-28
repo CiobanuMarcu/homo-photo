@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,11 +28,6 @@
 <body>
 
 <!-- PRE LOADER -->
-<?php
-if (!isset ($_SESSION['user'])) {
-    header('Location: index.php');
-}
-?>
 <div class="preloader">
     <div class="sk-spinner sk-spinner-wordpress">
         <span class="sk-inner-circle"></span>
@@ -87,48 +81,101 @@ if (!isset ($_SESSION['user'])) {
 <!-- Blog Single Post Section -->
 
 <section id="blog-single-post">
-    <div class="container">
-        <div class="row">
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!---->
+<!--            <div class="col-md-offset-1 col-md-10 col-sm-12">-->
+<!--                <div class="blog-single-post-thumb">-->
+<!--                    <div>-->
+<!--                        <!-- Rasp elev-->
+<!--                        <div style="float: left;">-->
+<!--                            <h4>Răspunsurile tale:</h4>-->
+<!--                            <p>Personaje1</p>-->
+<!--                            <p>Obiecte1</p>-->
+<!--                            <p>Actiuni1</p>-->
+<!--                            <p>Locuri1</p>-->
+<!--                            <p>Perioada1</p>-->
+<!--                            <p>Publicarea1</p>-->
+<!--                        </div>-->
+<!--                        <!-- Rasp prof-->
+<!--                        <div>-->
+<!--                            <h4>Răspunsurile profesorului:</h4>-->
+<!--                            <p>Personaje2</p>-->
+<!--                            <p>Obiecte2</p>-->
+<!--                            <p>Actiuni2</p>-->
+<!--                            <p>Locuri2</p>-->
+<!--                            <p>Perioada2</p>-->
+<!--                            <p>Publicarea2</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    </br>-->
+<!--                    </br>-->
 
-            <div class="col-md-offset-1 col-md-10 col-sm-12">
-                <div class="blog-single-post-thumb">
-                    <div class="blog-post-image">
-                        <img src="images/800px-Adunare_Piaţa_Palatului_August_1968.jpg" class="indexphoto" alt="Blog Image 3">
-                    </div>
-                    <div>
-                        <!-- Rasp elev-->
-                        <div style="float: left;">
-                            <h4>Răspunsurile tale:</h4>
-                            <p>Personaje1</p>
-                            <p>Obiecte1</p>
-                            <p>Actiuni1</p>
-                            <p>Locuri1</p>
-                            <p>Perioada1</p>
-                            <p>Publicarea1</p>
-                        </div>
-                        <!-- Rasp prof-->
-                        <div>
-                            <h4>Răspunsurile profesorului:</h4>
-                            <p>Personaje2</p>
-                            <p>Obiecte2</p>
-                            <p>Actiuni2</p>
-                            <p>Locuri2</p>
-                            <p>Perioada2</p>
-                            <p>Publicarea2</p>
-                        </div>
-                    </div>
-                    </br>
-                    </br>
-                    <h4 align="left">Adresează o întrebare profesorului pe baza fotografiei:</h4>
-                    <form action="nivel4.php" method="post">
-                        <input type="text" class="form-control" placeholder="" name="" required>
-                        <div class="col-md-3 col-sm-4">
-                            <input name="submit" type="submit" class="form-control" id="submit" value="Trimite întrebarea">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                        <?php
+                        session_start();
+                        if (!isset ($_SESSION['user'])) {
+                            header('Location: index.php');
+                        }
+                        $x=$_GET["id"];
+                        echo " <div class=\"blog-post-image\"><img src=logic/download-logic.php?id=$x class='indexphoto'></div>";
+                        $idu = $_SESSION['id'];
+                        $mysqli = new mysqli("localhost", "root", "", "homo-photo");
+                        $query = "SELECT r11, r12, r13, r14, r21, r22, r23, r24 FROM raspunsuri WHERE user_id=$idu";
+                                echo "<div><div style='float: left;'><p>Răspunsurile tale:</p></br>";
+                        if ($result = $mysqli->query($query)) {
+                            while ($row = $result->fetch_assoc()) {
+                                $r11 = $row["r11"];
+                                $r12 = $row["r12"];
+                                $r13 = $row["r13"];
+                                $r14 = $row["r14"];
+                                $r21 = $row["r21"];
+                                $r22 = $row["r22"];
+                                $r23 = $row["r23"];
+                                $r24 = $row["r24"];
+                                echo $r11 . '<br />';
+                                echo $r12 . '<br />';
+                                echo $r13 . '<br />';
+                                echo $r14 . '<br />';
+                                echo $r21 . '<br />';
+                                echo $r22 . '<br />';
+                                echo $r23 . '<br />';
+                                echo $r24 . '</div>';
+                            }
+                        }
+                        else echo "NU";
+                        echo "<div style='float: right;'><p>Răspunsurile profesorului:</p></br>";
+                        $queryp = "SELECT r11, r12, r13, r14, r21, r22, r23, r24 FROM poze WHERE id=$x";
+                        if ($resultp = $mysqli->query($queryp)) {
+                            while ($rowp = $resultp->fetch_assoc()) {
+                                $r11p = $rowp["r11"];
+                                $r12p = $rowp["r12"];
+                                $r13p = $rowp["r13"];
+                                $r14p = $rowp["r14"];
+                                $r21p = $rowp["r21"];
+                                $r22p = $rowp["r22"];
+                                $r23p = $rowp["r23"];
+                                $r24p = $rowp["r24"];
+                                echo $r11p . '<br />';
+                                echo $r12p . '<br />';
+                                echo $r13p . '<br />';
+                                echo $r14p . '<br />';
+                                echo $r21p . '<br />';
+                                echo $r22p . '<br />';
+                                echo $r23p . '<br />';
+                                echo $r24p . '</div></div><br />';
+                            }
+                        }
+                        else echo "NU";
+
+                    echo "<form action='logic/rasp/r3.php' method='get'>";
+                        echo"<h4>Adresează o întrebare profesorului pe baza fotografiei:</h4>";
+                        echo"<input type='text' class='form-control' name='raspuns' id='raspuns' required>";
+                        echo"<input type=\"text\" style=\"display: none;\" name=\"id\" id=\"id\" value=$x >";
+                        echo"<div class='col-md-3 col-sm-4'>";
+                            echo"<input name='submit' type='submit' class='form-control' id='submit' value='Trimite întrebarea'>";
+                        echo "</div>";
+                    echo "</form>";
+                    ?>
 </section>
 
 <!-- Footer Section -->
