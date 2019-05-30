@@ -45,7 +45,7 @@
                 <span class="icon icon-bar"></span>
                 <span class="icon icon-bar"></span>
             </button>
-            <a href="index.php" class="navbar-brand" style="border-style:solid; padding:20px; border-radius: 25px; height: 100%">
+            <a href="elev.php" class="navbar-brand" style="border-style:solid; border-radius: 25px; padding:20px; height: 100%">
                 <span>Homo</br>photographicus</span>
             </a>
         </div>
@@ -121,7 +121,7 @@
                         $idu = $_SESSION['id'];
                         $mysqli = new mysqli("localhost", "root", "", "homo-photo");
                         $query = "SELECT r11, r12, r13, r14, r21, r22, r23, r24 FROM raspunsuri WHERE user_id=$idu";
-                                echo "<div><div style='float: left;'><p>Răspunsurile tale:</p></br>";
+                                echo "<div style='text-align: center;'><div class=\"col-md-4 col-sm-4\"><p>Răspunsurile tale:</p>";
                         if ($result = $mysqli->query($query)) {
                             while ($row = $result->fetch_assoc()) {
                                 $r11 = $row["r11"];
@@ -143,7 +143,7 @@
                             }
                         }
                         else echo "NU";
-                        echo "<div style='float: right;'><p>Răspunsurile profesorului:</p></br>";
+                        echo "<div class=\"col-md-4 col-sm-4\"><p>Răspunsurile profesorului:</p>";
                         $queryp = "SELECT r11, r12, r13, r14, r21, r22, r23, r24 FROM poze WHERE id=$x";
                         if ($resultp = $mysqli->query($queryp)) {
                             while ($rowp = $resultp->fetch_assoc()) {
@@ -168,8 +168,8 @@
                         else echo "NU";
 
                     echo "<form action='logic/rasp/r3.php' method='get'>";
-                        echo"<h4>Adresează o întrebare profesorului pe baza fotografiei:</h4>";
-                        echo"<input type='text' class='form-control' name='raspuns' id='raspuns' required>";
+                        echo"<h4 style='margin-top: 200px;'>Adresează o întrebare profesorului pe baza fotografiei:</h4>";
+                        echo"<input type='text' class='form-control' name='raspuns' id='raspuns' style='width: 500px;' required>";
                         echo"<input type=\"text\" style=\"display: none;\" name=\"id\" id=\"id\" value=$x >";
                         echo"<div class='col-md-3 col-sm-4'>";
                             echo"<input name='submit' type='submit' class='form-control' id='submit' value='Trimite întrebarea'>";

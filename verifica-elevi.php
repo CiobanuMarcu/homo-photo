@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +19,6 @@
     -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
 
     <!-- Main css -->
     <link rel="stylesheet" href="css/style.css">
@@ -28,13 +26,8 @@
 
 </head>
 <body>
-    <?php
-        if (!isset ($_SESSION['user'])) {
-            header('Location: index.php');
-    }
-    ?>
-<!-- PRE LOADER -->
 
+<!-- PRE LOADER -->
 <div class="preloader">
     <div class="sk-spinner sk-spinner-wordpress">
         <span class="sk-inner-circle"></span>
@@ -52,75 +45,104 @@
                 <span class="icon icon-bar"></span>
                 <span class="icon icon-bar"></span>
             </button>
-            <div class="logo">
-                <a href="elev.php" class="navbar-brand" style="border-style:solid; border-radius: 25px; padding:20px; height: 100%">
-                    <span>Homo</br>photographicus</span>
-                </a>
-            </div>
+            <a href="elev.php" class="navbar-brand" style="border-style:solid; padding:20px; height: 100%; border-radius: 25px;">
+                <span>Homo</br>photographicus</span>
+            </a>
         </div>
         <a href="logic/logout-logic.php" class="smoothScroll btn btn-default">Deconectează-te</a>
-        <a href="setari-elev.php"><p>Setări</p></a>
-        <!-- <div class="collapse navbar-collapse">
-
-                  <ul class="nav navbar-nav navbar-right">
-                       <li><a href="index.html">Home</a></li>
-                       <li><a href="about.html">About</a></li>
-                       <li class="active"><a href="gallery.html">Gallery</a></li>
-                       <li><a href="contact.html">Contact</a></li>
-                  </ul>
-        </div>-->
 
     </div>
 </div>
 
 <!-- Home Section -->
 
-<section id="home" class="main-gallery parallax-section">
+<section id="home" class="main-about parallax-section">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
 
             <div class="col-md-12 col-sm-12">
-                <h1>Pentru a începe, selectează o fotografie</h1>
+                <h1>Verifică elevii</h1>
             </div>
 
         </div>
     </div>
 </section>
 
-<!-- Gallery Section -->
+<!-- About Section -->
 
-<section id="gallery">
-    <div class="container">
-        <div class="row">
+<section id="about">
+    <h3>Caută elevii:</h3>
+    <?php
+        session_start();
+        if (!isset ($_SESSION['user'])) {
+            header('Location: index.php');
+        }
 
-            <div class="col-md-offset-1 col-md-10 col-sm-12">
-                <span></span>
-                <div class="col-md col-sm">
-                    <div class="gallery-thumb">
+    include('service/DatabaseManager.php');
+    $connection = getConnection();
+    $numep = $_SESSION['user'];
+    $rowSQL = mysqli_query($connection, "SELECT * FROM utilizatori WHERE Prof='$numep' AND Clasa='' ;" );
+    while($row = mysqli_fetch_array( $rowSQL )){
+        $n=$row['Nume'];
+        echo"<input name='prof' type='radio' value=$n>".$n;
 
-                    </div>
-                </div>
-                <style>
-                    img
-                    {
-                        height:200px;
+    }
+    ?>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <input type="text" name="clasa">
+        <?php
+        include('service/DatabaseManager.php');
+        $connection = getConnection();
+        $rowSQL = mysqli_query($connection, "SELECT MAX( id ) AS max FROM poze ;" );
+        $row = mysqli_fetch_array( $rowSQL );
+        echo "<style>
+                        .dropbtn {
+            background-color: white;
+                            color: #999;
+                            padding: 16px;
+                            font-size: 16px;
+                            border: none;
+                        }
 
-                    }
-                </style>
-                <?php
-                    include('service/DatabaseManager.php');
-                    $connection = getConnection();
-                    $rowSQL = mysqli_query($connection, "SELECT MAX( id ) AS max FROM poze ;" );
-                    $row = mysqli_fetch_array( $rowSQL );
-                    for($i = $row['max']; $i > 0; $i--) echo "<a href=nivel1.php?id=$i><img src=logic/download-logic.php?id=$i/></a></br>";
-                ?>
-                <div class="col-md-12 col-sm-12">
-                </div>
-            </div>
+                        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
 
-        </div>
-    </div>
+                        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+                            height: 300px;
+                            min-width: 160px;
+                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                            z-index: 1;
+                            overflow: scroll;
+                        }
+
+                        .dropdown-content input {
+            color: black;
+            padding: 6px 8px;
+                            text-decoration: none;
+                            display: block;
+                        }
+
+                        .dropdown-content input:hover {background-color: #ddd;}
+
+                        .dropdown:hover .dropdown-content {display: block;}
+
+                        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+                    </style>";
+                    echo "<div class='dropdown'>";
+                        echo "<button class='dropbtn'>Județ</button>";
+                        echo "<div class='dropdown-content' required>";
+
+                        echo "</div>";
+                        echo "</div>";
+        for($i = $row['max']; $i > 0; $i--) echo "<a href=nivel1.php?id=$i><img src=logic/download-logic.php?id=$i/></a></br>";
+        ?>
+    </form>
 </section>
 
 <!-- Footer Section -->
@@ -129,7 +151,7 @@
     <div class="container">
         <div class="row">
             <!--
-           <div class="col-md-5 col-md-offset-1 col-sm">
+           <div class="col-md-5 col-md-offset-1 col-sm-6">
                 <h3>Neuron Studio</h3>
                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
                 <div class="footer-copyright">
@@ -137,7 +159,7 @@
                 </div>
            </div>
 
-           <div class="col-md-4 col-md-offset-1 col-sm">
+           <div class="col-md-4 col-md-offset-1 col-sm-6">
                 <h3>Talk to us</h3>
                 <p><i class="fa fa-globe"></i> 512 Delicious Street, San Francisco, CA 10880</p>
                 <p><i class="fa fa-phone"></i> 010-020-0990</p>
@@ -156,8 +178,8 @@
                      <li><a href="#" class="fa fa-dribbble"></a></li>
                      <li><a href="#" class="fa fa-linkedin"></a></li>
                 </ul>
-           </div>
-           -->
+           </div>-->
+
         </div>
     </div>
 </footer>
@@ -169,8 +191,6 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/magnific-popup-options.js"></script>
 <script src="js/jquery.parallax.js"></script>
 <script src="js/custom.js"></script>
 

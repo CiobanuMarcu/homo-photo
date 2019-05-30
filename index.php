@@ -47,9 +47,9 @@ http://www.tooplate.com/view/2085-neuron
                     <span class="icon icon-bar"></span>
                </button>
 				<div class="logo">
-					<a href="index.php" class="navbar-brand" style="border-style:solid; padding:20px; height: 100%; border-radius: 25px;">
-					<span>Homo</br>photographicus</span>
-					</a>
+                     <a href="elev.php" class="navbar-brand" style="border-style:solid; border-radius: 25px; padding:20px; height: 100%">
+                          <span>Homo</br>photographicus</span>
+                     </a>
 				</div>
           </div>
           <div class="collapse navbar-collapse">
@@ -89,7 +89,7 @@ http://www.tooplate.com/view/2085-neuron
           <div class="row">
 
                <div class="col-md-12 col-sm-12">
-                    <h1 style="color: white;">O fotografie face cât o mie de cuvinte.</h1>
+                    <h1 style="color: white;">O fotografie face cât o mie de cuvinte</h1>
                     <h4>Află dacă este așa!</h4>
                     <!-- <a href="#blog" class="smoothScroll btn btn-default">Discover More</a> -->
                </div>

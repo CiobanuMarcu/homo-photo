@@ -32,6 +32,7 @@ if(isset($_POST["submit"])){
         $insert = $db->query("UPDATE raspunsuri SET r4 = '$imgContent' WHERE user_id = '$idu' AND poza_id = '$idp'");
         if($insert){
             echo "File uploaded successfully.";
+            header("Location:../elev.php");
         }else{
             echo "File upload failed, please try again.";
         }

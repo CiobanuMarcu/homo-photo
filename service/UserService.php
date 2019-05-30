@@ -31,11 +31,16 @@ class UserService
         if($rows == 1)
         {
             $row = mysqli_fetch_assoc($result);
+            $user_judet = $row['Judet'];
+            $_SESSION['judet'] = $user_judet;
+            $user_admin = $row['Admin'];
+            $_SESSION['admin'] = $user_admin;
             $user_id = $row['id'];
             $_SESSION['id'] = $user_id;
             $_SESSION["user"] = $_POST['username'];
             closeConnection($connection);
-            header('Location: ../elev.php');
+            if($_SESSION['admin'] == 0) header('Location: ../elev.php');
+            else header('Location: ../prof.php');
         }
         else
         {

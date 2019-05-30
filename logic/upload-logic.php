@@ -8,7 +8,16 @@ if(isset($_POST["submit"])){
         /*
          * Insert image data into database
          */
-
+        $titlu=$_POST["titlu"];
+        $r11=$_POST["personaje"];
+        $r12=$_POST["obiecte"];
+        $r13=$_POST["actiuni"];
+        $r14=$_POST["locuri"];
+        $r21=$_POST["pozitie"];
+        $r22=$_POST["cand"];
+        $r23=$_POST["unde"];
+        $r24=$_POST["intreb"];
+        $rr=$_POST["rintreb"];
         //DB details
         $dbHost     = 'localhost';
         $dbUsername = 'root';
@@ -26,7 +35,8 @@ if(isset($_POST["submit"])){
         //$dataTime = date("Y-m-d H:i:s");
 
         //Insert image content into database
-        $insert = $db->query("INSERT into poze (poza) VALUE ('$imgContent')");
+        $insert = $db->query("INSERT INTO poze(poza, r11, r12, r13, r14, r21, r22, r23, r24, intrebare, titlu) VALUES ('$imgContent', '$r11', '$r12', '$r13', '$r14', '$r21', '$r22', '$r23', '$rr', '$r24', '$titlu')");
+        //INSERT into poze (poza) VALUE ('$imgContent')
         if($insert){
             echo "File uploaded successfully.";
         }else{

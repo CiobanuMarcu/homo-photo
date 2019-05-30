@@ -46,7 +46,7 @@
                 <span class="icon icon-bar"></span>
                 <span class="icon icon-bar"></span>
             </button>
-            <a href="index.php" class="navbar-brand" style="border-style:solid; padding:20px; height: 100% border-radius: 25px;">
+            <a href="elev.php" class="navbar-brand" style="border-style:solid; padding:20px; height: 100%; border-radius: 25px;">
                 <span>Homo</br>photographicus</span>
             </a>
         </div>

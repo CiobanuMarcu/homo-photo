@@ -51,7 +51,7 @@ if (!isset ($_SESSION['user'])) {
                 <span class="icon icon-bar"></span>
                 <span class="icon icon-bar"></span>
             </button>
-            <a href="index.php" class="navbar-brand" style="border-style:solid; padding:20px; border-radius: 25px; height: 100%">
+            <a href="elev.php" class="navbar-brand" style="border-style:solid; border-radius: 25px; padding:20px; height: 100%">
                 <span>Homo</br>photographicus</span>
             </a>
         </div>
@@ -117,8 +117,8 @@ if (!isset ($_SESSION['user'])) {
                             $x=$_GET['id'];
                             echo "<div class=\"blog-post-image\"><img src=logic/download-logic.php?id=$x class='indexphoto' alt='Blog Image 3'></div>";
                             echo "<input type=\"text\" style=\"display: none;\" name=\"id\" id=\"id\" value=$x >";
-                            echo 'Poziția autorului fotografiei în raport cu evenimentul/personajul principal:';
-                            echo "<input type='radio' name='pozitie' id='pozitie' value='Sustinator'>Sustinator";
+                            //echo 'Poziția autorului fotografiei în raport cu evenimentul/personajul principal:';
+                            echo "Poziția autorului fotografiei în raport cu evenimentul/personajul principal: <input type='radio' name='pozitie' id='pozitie' value='Sustinator'>Sustinator";
                             echo  "<input type='radio' name='pozitie' id='pozitie' value='Opozant'>Opozant";
                             echo  "<input type='radio' name='pozitie' id='pozitie' value='Neutru'>Neutru";
                             echo "<input type='text' class='form-control' placeholder='Perioada istorică din care datează fotografia' name='cand' id='cand' required>";
