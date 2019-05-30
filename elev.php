@@ -101,6 +101,10 @@
 
                     </div>
                 </div>
+                <form action="logic/title-to-id.php" style="width: 200px;" method="get">
+                    <input type="text" class='form-control' placeholder="Fișa de lucru" name="titlu" id="titlu">
+                    <input type="submit" class='form-control' name="submit" value="Caută">
+                </form>
                 <style>
                     img
                     {

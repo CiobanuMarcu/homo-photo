@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset ($_SESSION['user'])) {
+    header('Location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,77 +78,67 @@
 <!-- About Section -->
 
 <section id="about">
-    <h3>Caută elevii:</h3>
-    <?php
-        session_start();
-        if (!isset ($_SESSION['user'])) {
-            header('Location: index.php');
-        }
+    <h3>Caută răspunsurile elevilor:</h3>
+        <style>
+            .dropbtn {
+                background-color: white;
+                color: #999;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+            }
 
+            .dropdown {
+                /*position: relative;*/
+                display: inline-block;
+                margin-left: 200px;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f1f1f1;
+                height: 300px;
+                min-width: 500px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                overflow: scroll;
+            }
+
+            .dropdown-content input {
+                color: black;
+                padding: 6px 8px;
+                text-decoration: none;
+                display: block;
+            }
+            img {
+                max-width: 200px;
+            }
+            .dropdown-content input:hover {background-color: #ddd;}
+
+            .dropdown:hover .dropdown-content {display: block;}
+
+            .dropdown:hover .dropbtn {background-color: #3e8e41;}
+        </style>
+    <?php
     include('service/DatabaseManager.php');
     $connection = getConnection();
-    $numep = $_SESSION['user'];
-    $rowSQL = mysqli_query($connection, "SELECT * FROM utilizatori WHERE Prof='$numep' AND Clasa='' ;" );
+    $rowSQL = mysqli_query($connection, "SELECT * FROM poze" );
+    echo "<div class=\"col-md-4 col-sm-4\"><div class=\"dropdown\"><button class=\"dropbtn\">Fișa de lucru</button>";
+    echo "<form action='logic/cauta-elevi.php' method='get'>";
+    echo "<div class=\"dropdown-content\">";
     while($row = mysqli_fetch_array( $rowSQL )){
-        $n=$row['Nume'];
-        echo"<input name='prof' type='radio' value=$n>".$n;
-
+        $titlu=$row['titlu'];
+        $imagine=$row['poza'];
+        $id=$row['id'];
+        echo"<div><img src=logic/download-logic.php?id=$id/>           <input style='margin-left: 200px; float: left' name='poza' id='poza' type='radio' value=$id>".$titlu."</div>";
     }
+    echo "</div></div></div>";
+    echo "<i>Clasa se va trece cu cifre arabe, urmată ,fără spațiu, de index (ex.: 10B, 6C).</i>";
+    echo "<input type='text' style='width: 500px;' placeholder='Clasa' class='form-control' name='clasa' id='clasa'>";
+    echo "<input name=\"submit\" style='width: 500px;' type=\"submit\" class=\"form-control\" id=\"submit\" value=\"Caută\">";
+    echo "</form>";
     ?>
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <input type="text" name="clasa">
-        <?php
-        include('service/DatabaseManager.php');
-        $connection = getConnection();
-        $rowSQL = mysqli_query($connection, "SELECT MAX( id ) AS max FROM poze ;" );
-        $row = mysqli_fetch_array( $rowSQL );
-        echo "<style>
-                        .dropbtn {
-            background-color: white;
-                            color: #999;
-                            padding: 16px;
-                            font-size: 16px;
-                            border: none;
-                        }
-
-                        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-                        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-                            height: 300px;
-                            min-width: 160px;
-                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                            z-index: 1;
-                            overflow: scroll;
-                        }
-
-                        .dropdown-content input {
-            color: black;
-            padding: 6px 8px;
-                            text-decoration: none;
-                            display: block;
-                        }
-
-                        .dropdown-content input:hover {background-color: #ddd;}
-
-                        .dropdown:hover .dropdown-content {display: block;}
-
-                        .dropdown:hover .dropbtn {background-color: #3e8e41;}
-                    </style>";
-                    echo "<div class='dropdown'>";
-                        echo "<button class='dropbtn'>Județ</button>";
-                        echo "<div class='dropdown-content' required>";
-
-                        echo "</div>";
-                        echo "</div>";
-        for($i = $row['max']; $i > 0; $i--) echo "<a href=nivel1.php?id=$i><img src=logic/download-logic.php?id=$i/></a></br>";
-        ?>
-    </form>
 </section>
 
 <!-- Footer Section -->
