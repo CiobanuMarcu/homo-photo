@@ -117,7 +117,12 @@
                             header('Location: index.php');
                         }
                         $x=$_GET["id"];
+                        include('service/DatabaseManager.php');
+                        $connection = getConnection();
+                        $rowSQL = mysqli_query($connection, "SELECT * FROM poze WHERE id='$x';" );
+                        while($row = mysqli_fetch_array( $rowSQL )){$titlu=$row['titlu'];}
                         echo " <div class=\"blog-post-image\"><img src=logic/download-logic.php?id=$x class='indexphoto'></div>";
+                        echo "<i style='margin-left: 675px;'>".$titlu."</i>";
                         $idu = $_SESSION['id'];
                         $mysqli = new mysqli("localhost", "root", "", "homo-photo");
                         $query = "SELECT r11, r12, r13, r14, r21, r22, r23, r24 FROM raspunsuri WHERE user_id=$idu";

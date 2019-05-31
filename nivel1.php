@@ -98,9 +98,16 @@ if (!isset ($_SESSION['user'])) {
                         <form action="logic/rasp/r1.php" method="get">
                         <?php
                             $x=$_GET['id'];
+                            include('service/DatabaseManager.php');
+                            $connection = getConnection();
+                            $rowSQL = mysqli_query($connection, "SELECT * FROM poze WHERE id='$x';" );
+                            while($row = mysqli_fetch_array( $rowSQL )){$titlu=$row['titlu'];}
                             echo "<div class=\"blog-post-image\"><img src=logic/download-logic.php?id=$x class='indexphoto' alt='Blog Image 3'></div>";
-                            echo "<input type=\"text\" style=\"display: none;\" name=\"id\" id=\"id\" value=$x >"
+                            echo "<i>".$titlu."</i></br>";
+                            echo "<input type=\"text\" style=\"display: none;\" name=\"id\" id=\"id\" value=$x >";
+                            echo "<a href='nivel4.php?id=$x'>Sari la temă</a>";
                         ?>
+
                             <input type="text" class="form-control" placeholder="Personaje" name="personaje" id="personaje" required>
                             <input type="text" class="form-control" placeholder="Obiecte" name="obiecte" id="obiecte" required>
                             <input type="text" class="form-control" placeholder="Acțiuni" name="actiuni" id="actiuni" required>
