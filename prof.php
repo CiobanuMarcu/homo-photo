@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset ($_SESSION['user'])) {
+     header('Location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,6 +152,7 @@ http://www.tooplate.com/view/2085-neuron
 <!---->
 <!--          </div>-->
 <!--     </div>-->
+     <a href="verifica-elevi.php"><button type="button" class="btn btn-light">Verifică elevii</button></a>
      <form action="logic/upload-logic.php" method="post" enctype="multipart/form-data">
 
           <input type="file" name="image"/>

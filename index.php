@@ -105,15 +105,11 @@ http://www.tooplate.com/view/2085-neuron
           <div class="row justify-content-md-center">
 			<div class="row"><p style="font-size:30px;" align="center">Dar dacă nu poți citi cuvintele? </br>Te ajutăm să înțelegi mesajul fotografiei!</p></div>
 			</br>
-			<div class="row"><p style="font-size:30px;">Cine?</p></div>
-			<div class="row">
-				<div class="col"><p style="font-size:30px;">Unde?</p></div>
-				<div class="col-6">
+			<p style="font-size:30px;">Cine?</p>
+				<p style="font-size:30px;">Unde?</p>
 				<img src="images/800px-Adunare_Piaţa_Palatului_August_1968.jpg" class="indexphoto" alt="Gallery Image">
-				</div>
 				<p class="dece"><b>DE CE?</b></p>
-				<div class="col"><p  style="font-size:30px;" >Când?</p></div>
-			</div>
+				<p  style="font-size:30px;" >Când?</p>
 			<p style="font-size:30px;">Ce?</p>
           </div>
      </div>

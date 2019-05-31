@@ -182,12 +182,21 @@
                             <input name="judet" type="radio" value="Vrancea">Vrancea</br>
                         </div>
                     </div>
-
+                    <script>
+                        function check_pass() {
+                            if (document.getElementById('password').value ==
+                                document.getElementById('confirm_password').value) {
+                                document.getElementById('submit').disabled = false;
+                            } else {
+                                document.getElementById('submit').disabled = true;
+                            }
+                        }
+                    </script>
                     <div class="col-md-4 col-sm-4">
-                        <input name="password" type="password" class="form-control" id="password" placeholder="Parola" required/>
+                        <input name="password" type="password" class="form-control" id="password" placeholder="Parola" onchange='check_pass();' required/>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <input name="cpassword" type="password" class="form-control"  id="confirm_password" placeholder="Confirmă parola" required/>
+                        <input name="confirm_password" type="password" class="form-control"  id="confirm_password" placeholder="Confirmă parola" onchange='check_pass();' required/>
                     </div>
                     <input type="radio" name="admin" value="Elev" required> Elev
                     <input type="radio" name="admin" value="Profesor" required> Profesor

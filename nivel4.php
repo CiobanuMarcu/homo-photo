@@ -88,8 +88,7 @@
             <div class="col-md-offset-1 col-md-10 col-sm-12">
                 <div class="blog-single-post-thumb">
                     <h4 style="font-size: 130%">Realizează și tu o fotografie care să transmită un mesaj asemănător/opus celui din fotografia
-                        analizată (nu uita să ceri acordul dacă alegi o persoană!). Încarcă fotografia.
-                        <br>Analizează fotografiile colegilor, pune întrebări și dă răspunsuri.</h4>
+                        analizată (nu uita să ceri acordul dacă alegi o persoană!). Încarcă fotografia.</h4>
                 </div>
                 <?php
                     session_start();
